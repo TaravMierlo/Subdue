@@ -12,7 +12,7 @@ import Parameters
 import Graph
 import Pattern
 
-DEBUGFLAG = False
+DEBUGFLAG = True
 
 # ***** todos: read graph file incrementally
 def ReadGraph(inputFileName):
@@ -227,8 +227,8 @@ def main():
     parameters = Parameters.Parameters()
     parameters.set_parameters(sys.argv)
     graph = ReadGraph(parameters.inputFileName)
-    #outputFileName = parameters.outputFileName + ".dot"
-    #graph.write_to_dot(outputFileName)
+    outputFileName = parameters.outputFileName + ".dot"
+    graph.write_to_dot(outputFileName)
     parameters.set_defaults_for_graph(graph)
     parameters.print()
     Subdue(parameters, graph)
