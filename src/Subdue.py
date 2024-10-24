@@ -12,7 +12,7 @@ import Parameters
 import Graph
 import Pattern
 
-DEBUGFLAG = True
+DEBUGFLAG = False
 
 # ***** todos: read graph file incrementally
 def ReadGraph(inputFileName):
