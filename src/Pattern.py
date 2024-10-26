@@ -31,7 +31,9 @@ class Pattern:
     def write_instances_to_file(self, outputFileName):
         """Write instances of pattern to given file name in JSON format."""
         outputFile = open(outputFileName, 'w')
-        outputFile.write('[\n')
+        outputFile.write('{\n')
+        outputFile.write(f'  "count": {len(self.instances)},\n')
+        outputFile.write('  "instances": [\n')
         firstOne = True
         for instance in self.instances:
             if firstOne:
@@ -39,7 +41,7 @@ class Pattern:
             else:
                 outputFile.write(',\n')
             instance.write_to_file(outputFile)
-        outputFile.write('\n]\n')
+        outputFile.write('\n]\n}\n')
         outputFile.close()
 
 class Instance:

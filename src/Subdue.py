@@ -132,8 +132,9 @@ def Subdue(parameters, graph):
                     outputFileName = f"{parameters.outputFileName}-pattern-{iteration}-top-{i+1}.json"
                     pattern.definition.write_to_file(outputFileName)
             if (parameters.writeInstances):
-                outputFileName = parameters.outputFileName + "-instances-" + str(iteration) + ".json"
-                patternList[0].write_instances_to_file(outputFileName)
+                for i, pattern in enumerate(patternList[:3]):
+                    outputFileName = f"{parameters.outputFileName}-instances-{iteration}-top-{i+1}.json"
+                    pattern.write_instances_to_file(outputFileName)
             if ((iteration < parameters.iterations) or (parameters.writeCompressed)):
                 graph.Compress(iteration, patternList[0])
             if (iteration < parameters.iterations):
